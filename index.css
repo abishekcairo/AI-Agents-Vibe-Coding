@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #fcfcf9;
+  color: #1c1c1a;
+  overflow-x: hidden;
+}
+
+@keyframes drift-left-right {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(15px);
+  }
+}
+
+.drift-animation {
+  animation: drift-left-right 3s ease-in-out infinite;
+}
+
+@keyframes elegant-fall {
+  0% {
+    transform: translateY(-80px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(105vh) rotate(var(--fall-rotate, 360deg));
+  }
+}
+
+@keyframes elegant-rise {
+  0% {
+    transform: translateY(105vh);
+  }
+  100% {
+    transform: translateY(-150px);
+  }
+}
+
+@keyframes sway-path {
+  0%, 100% {
+    margin-left: 0px;
+  }
+  50% {
+    margin-left: var(--sway-distance, 40px);
+  }
+}
+
+.snowflake-animation {
+  animation: elegant-fall var(--fall-duration, 5s) linear forwards;
+}
+
+.balloon-animation {
+  animation: elegant-rise var(--rise-duration, 6s) cubic-bezier(0.1, 0.4, 0.45, 1) forwards, sway-path var(--sway-duration, 3s) ease-in-out infinite;
+}
+
+
